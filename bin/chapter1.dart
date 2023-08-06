@@ -2,6 +2,7 @@ class Chapter1 {
   bool? exercise1() {
     //Ubah tipe data variable dibawah ini menjadi String
     int price = 100;
+    price.toString();
     return price is String;
   }
 
@@ -11,6 +12,7 @@ class Chapter1 {
     //Ubahlah variable text di atas menjadi double,
     //dan isilah varibel price dengan hasil konversinya
     //di bagian bawah
+    price = double.parse(text);
     return price == 100.24;
   }
 
