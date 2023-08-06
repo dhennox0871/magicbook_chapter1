@@ -243,6 +243,7 @@ class Chapter1 {
     String input = "Dart";
     // Tuliskan kode untuk memverifikasi apakah input memiliki panjang lebih dari 3 karakter
     bool? output;
+    (input.length > 3) ? output = true : output = false;
 
     return output == true;
   }
@@ -251,6 +252,7 @@ class Chapter1 {
     String input = "Dart";
     // Tuliskan kode untuk memverifikasi apakah input memiliki panjang sama dengan 3 karakter
     bool? output;
+    (input.length == 3) ? output = true : output = false;
 
     return output == false;
   }
@@ -259,6 +261,7 @@ class Chapter1 {
     String input = "Dart";
     // Tuliskan kode untuk memverifikasi apakah input memiliki huruf pertama 'D'
     bool? output;
+    (input.substring(0, 1) == 'D') ? output = true : output = false;
 
     return output == true;
   }
