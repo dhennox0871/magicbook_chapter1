@@ -1,8 +1,7 @@
 class Chapter1 {
   bool? exercise1() {
     //Ubah tipe data variable dibawah ini menjadi String
-    int price = 100;
-    price.toString();
+    String price = '100';
     return price is String;
   }
 
@@ -24,7 +23,7 @@ class Chapter1 {
     //Gunakan Regex seperti ini: .replaceAll(RegExp(r'[^\d.]'), '')
 
     String text = "300.24a";
-    // price = double.tryParse(text) ?? 0;
+    price = double.tryParse(text.replaceAll(RegExp(r'[^\d.]'), '')) ?? 0;
     return price == 300.24;
   }
 
@@ -32,6 +31,8 @@ class Chapter1 {
     int input = 12;
     // Tuliskan kode untuk memverifikasi apakah input adalah bilangan ganjil
     bool? output;
+    (input / 2 == 0) ? output = true : output = false;
+
     return output == false;
   }
 
@@ -42,9 +43,9 @@ class Chapter1 {
     //Kode dibawah akan error jika di jalankan,
     //Perbaiki dengan meng-gunakan .tryParse("300aa")??0
     //Sehingga ketika parameter-nya tidak valid, nilainya menjadi 0
-    /*
-          total = double.parse("300aa");
-          */
+
+    total = double.tryParse("300aa") ?? 0;
+
     return total != null;
   }
 
@@ -56,9 +57,7 @@ class Chapter1 {
     //Perbaiki dengan meng-gunakan .tryParse("39ads")??0
     //Sehingga ketika parameter-nya tidak valid, nilainya menjadi 0
 
-    /*
-    age = int.parse("39ads");
-    */
+    age = int.tryParse("39ads") ?? 0;
 
     return age != null;
   }
@@ -68,9 +67,9 @@ class Chapter1 {
     String value = "5000";
 
     // Uncomment kode dibawah, dan perbaiki agar tidak error
-    /*
-    value = price;
-    */
+
+    price = price + int.parse(value);
+
     return price == 5000;
   }
 
@@ -85,6 +84,9 @@ class Chapter1 {
 
     String text = "hello 'Deny', apa kabar?";
     String? name;
+    int start = text.indexOf("'");
+    int end = text.lastIndexOf("'");
+    name = text.substring(start + 1, end);
     //Berdasarkan referensi di atas,
     //Ambil text diantara ' dan ' pada variable text
     return name == "Deny";
@@ -99,6 +101,10 @@ class Chapter1 {
           [TIPS] Gunakan for untuk mendapatkan total.
           Gunakan numbers.length untuk mendapatkan panjang List
           */
+    for (int i = 0; i < numbers.length; i++) {
+      total += numbers[i];
+    }
+    average = total / numbers.length;
     return average.toStringAsFixed(2) == "57.43";
   }
 
@@ -112,6 +118,9 @@ class Chapter1 {
     int minValue = 0;
     int maxValue = 0;
 
+    numbers.sort();
+    minValue = numbers.first;
+    maxValue = numbers.last;
     return minValue == 23 && maxValue == 109;
   }
 
@@ -119,6 +128,7 @@ class Chapter1 {
     int input = 10;
     // Tuliskan kode untuk menambahkan 5 pada input
     int? output;
+    output = input + 5;
 
     return output == 15;
   }
@@ -127,6 +137,7 @@ class Chapter1 {
     int input = 10;
     // Tuliskan kode untuk mengurangi 5 pada input
     int? output;
+    output = input - 5;
 
     return output == 5;
   }
@@ -136,6 +147,7 @@ class Chapter1 {
     int input2 = 20;
     // Tuliskan kode untuk menjumlahkan input1 dan input2
     int? output;
+    output = input1 + input2;
 
     return output == 30;
   }
@@ -145,6 +157,7 @@ class Chapter1 {
     int input2 = 20;
     // Tuliskan kode untuk mengurangi input2 dengan input1
     int? output;
+    output = input2 - input1;
 
     return output == 10;
   }
@@ -154,6 +167,7 @@ class Chapter1 {
     int input2 = 20;
     // Tuliskan kode untuk membagi input2 dengan input1
     double? output;
+    output = input2 / input1;
 
     return output == 2.0;
   }
@@ -163,6 +177,7 @@ class Chapter1 {
     int input2 = 20;
     // Tuliskan kode untuk mengalikan input1 dan input2
     int? output;
+    output = input1 * input2;
 
     return output == 200;
   }
@@ -172,6 +187,7 @@ class Chapter1 {
     int input2 = 20;
     // Tuliskan kode untuk menghitung sisa bagi input2 dengan input1
     int? output;
+    output = input2 % input1;
 
     return output == 0;
   }
@@ -180,6 +196,7 @@ class Chapter1 {
     String input = "Hello";
     // Tuliskan kode untuk menambahkan " World!" pada input
     String? output = "";
+    output = input + " World!";
 
     return output == "Hello World!";
   }
@@ -188,6 +205,8 @@ class Chapter1 {
     String input = "Hello World!";
     // Tuliskan kode untuk mengambil kata pertama dari input
     String? output = "";
+    List hasil = input.split(' ');
+    output = hasil[0];
 
     return output == "Hello";
   }
@@ -196,6 +215,8 @@ class Chapter1 {
     String input = "Hello World!";
     // Tuliskan kode untuk mengambil kata kedua dari input
     String? output = "";
+    List hasil = input.split(' ');
+    output = hasil[1];
 
     return output == "World!";
   }
@@ -204,6 +225,7 @@ class Chapter1 {
     int input = 12345;
     // Tuliskan kode untuk memverifikasi apakah input adalah bilangan genap
     bool? output;
+    (input / 2 == 0) ? output = true : output = false;
 
     return output == false;
   }
@@ -212,6 +234,7 @@ class Chapter1 {
     int input = 12345;
     // Tuliskan kode untuk memverifikasi apakah input adalah bilangan ganjil
     bool? output;
+    (input / 2 == 0) ? output = true : output = false;
 
     return output == true;
   }
